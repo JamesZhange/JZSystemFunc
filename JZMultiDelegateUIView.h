@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GCDMulticastDelegate.h"
+#import "JZMulticastDelegate.h"
 
 
 @interface JZMultiDelegateUIView : UIView

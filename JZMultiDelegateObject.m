@@ -35,7 +35,7 @@
         moduleQueueTag = &moduleQueueTag;
         dispatch_queue_set_specific(moduleQueue, moduleQueueTag, moduleQueueTag, NULL);
         
-        multiDelegate = [[GCDMulticastDelegate alloc] init];
+        multiDelegate = [[JZMulticastDelegate alloc] init];
     }
     return self;
 }

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GCDMulticastDelegate.h"
+#import "JZMulticastDelegate.h"
 
 @interface JZMultiDelegateObject : NSObject
 {

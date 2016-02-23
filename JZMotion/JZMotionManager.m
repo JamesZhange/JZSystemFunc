@@ -8,8 +8,8 @@
 
 #import "JZMotionManager.h"
 #import "AccelerometerFilter.h"
-#import "vector.h"
-#import "vector_inline_implementation.h"
+// #import "vector.h"
+// #import "vector_inline_implementation.h"
 
 
 static const double kMinCutoffFrequency = 1;

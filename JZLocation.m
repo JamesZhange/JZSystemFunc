@@ -33,7 +33,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JZLocation);
     self = [super init];
     if (nil != self) {
         
-        multiDelegate = (GCDMulticastDelegate <JZLocationDelegate> *)[[GCDMulticastDelegate alloc] init];
+        multiDelegate = (JZMulticastDelegate <JZLocationDelegate> *)[[JZMulticastDelegate alloc] init];
         
         [self CreateLocation];
     }
