@@ -15,3 +15,7 @@
 
 
 @end
+
+
+#define ColorRGB(rgbstring)  [JZUIStyleHelper colorFromHexRGB: rgbstring];
+#define ColorRGBA(rgbstring)  [JZUIStyleHelper colorFromHexRGBA: rgbstring];
