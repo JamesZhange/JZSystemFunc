@@ -172,9 +172,10 @@
                 
                 // ... update data source.
                 if ((nil != _longpressReorderDelegate)
-                    && ([_longpressReorderDelegate respondsToSelector: @selector(tableExchangeCellAtIndex:withCellAtIndex:)])) {
-                    [_longpressReorderDelegate tableExchangeCellAtIndex: indexPath.row
-                                                        withCellAtIndex: sourceIndexPath.row];
+                    && ([_longpressReorderDelegate respondsToSelector: @selector(table:ExchangeCellAtIndex:withCellAtIndex:)])) {
+                    [_longpressReorderDelegate table: self
+                                 ExchangeCellAtIndex: indexPath.row
+                                     withCellAtIndex: sourceIndexPath.row];
                 }
                 
                 // ... move the rows.

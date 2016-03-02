@@ -11,7 +11,7 @@
 
 @protocol LPRTableViewPressReorderDelegate <NSObject>
 
--(void)tableExchangeCellAtIndex:(NSUInteger)idx1 withCellAtIndex:(NSUInteger)idx2;
+-(void)table:(UITableView*)table ExchangeCellAtIndex:(NSUInteger)idx1 withCellAtIndex:(NSUInteger)idx2;
 
 @end
 
