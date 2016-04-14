@@ -11,7 +11,17 @@
 
 @interface JZImageHelper : NSObject
 
-+(UIImage *)scaleFromImage: (UIImage*)image
-                    toSize: (CGSize)size;
++(UIImage *)resizeImage: (UIImage*)image
+                 toSize: (CGSize)size;
+// 等比缩放
++(UIImage *)resizeImage: (UIImage *)image
+                toScale: (float)scaleSize;
+
+
+// UIView 生成 Image
++(UIImage*) imageWithUIView: (UIView*)view;
+
++(UIImage*) imageWithUIView: (UIView*)view
+                     atRect: (CGRect)rect;
 
 @end

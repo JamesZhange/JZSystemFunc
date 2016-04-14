@@ -172,8 +172,9 @@
                 
                 // ... update data source.
                 if ((nil != _longpressReorderDelegate)
-                    && ([_longpressReorderDelegate respondsToSelector: @selector(table:ExchangeCellAtIndex:withCellAtIndex:)])) {
+                    && ([_longpressReorderDelegate respondsToSelector: @selector(table:Section:ExchangeCellAtIndex:withCellAtIndex:)])) {
                     [_longpressReorderDelegate table: self
+                                             Section: indexPath.section
                                  ExchangeCellAtIndex: indexPath.row
                                      withCellAtIndex: sourceIndexPath.row];
                 }
@@ -205,6 +206,7 @@
                 sourceIndexPath = nil;
                 [snapshot removeFromSuperview];
                 snapshot = nil;
+                cell.hidden = NO;
                 
             }];
             

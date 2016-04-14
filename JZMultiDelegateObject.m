@@ -62,6 +62,11 @@
         dispatch_async(moduleQueue, block);
 }
 
+- (void)addDelegateInMainQueue:(id)delegate
+{
+    [self addDelegate: delegate delegateQueue: dispatch_get_main_queue()];
+}
+
 - (void)removeDelegate:(id)delegate delegateQueue:(dispatch_queue_t)delegateQueue synchronously:(BOOL)synchronously
 {
     dispatch_block_t block = ^{

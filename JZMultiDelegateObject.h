@@ -23,6 +23,7 @@
 - (id)initWithDispatchQueue:(dispatch_queue_t)queue;
 
 - (void)addDelegate:(id)delegate delegateQueue:(dispatch_queue_t)delegateQueue;
+- (void)addDelegateInMainQueue:(id)delegate;
 - (void)removeDelegate:(id)delegate delegateQueue:(dispatch_queue_t)delegateQueue;
 - (void)removeDelegate:(id)delegate;
 - (void)removeAllDelegates;
