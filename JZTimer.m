@@ -1,14 +1,14 @@
 //
-//  JZRepeatTimer.m
+//  JZTimer.m
 //  JZSystemFuncDemon
 //
 //  Created by Liu Rui on 15/2/3.
 //  Copyright (c) 2015年 Liu Rui. All rights reserved.
 //
 
-#import "JZRepeatTimer.h"
+#import "JZTimer.h"
 
-@interface JZRepeatTimer()
+@interface JZTimer()
 {
     BOOL mRepeat;
     NSTimeInterval mSecond;
@@ -20,7 +20,7 @@
 
 
 
-@implementation JZRepeatTimer
+@implementation JZTimer
 
 -(id)init
 {
@@ -38,9 +38,9 @@
 }
 
 
-+(JZRepeatTimer*)newInstance
++(JZTimer*)newInstance
 {
-    return [[JZRepeatTimer alloc] init];
+    return [[JZTimer alloc] init];
 }
 
 

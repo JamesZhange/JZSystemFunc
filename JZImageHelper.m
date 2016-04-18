@@ -68,4 +68,36 @@
 
 
 
+
+/**
+ *  渐变色图案
+ *  const CGFloat locations[5] = {0,0.2,0.5,0.8,1};
+ *  CGFloat components[20] = {
+ *      R, G, B, 0.1*A,
+ *      R, G, B, 0.4*A,
+ *      R, G, B, 0.7*A,
+ *      R, G, B, 0.4*A,
+ *      R, G, B, 0.1*A
+ *  };
+ *  [self gradientImageWithSize:size locations:locations components:components count:5]
+ */
++(UIImage *)gradientImageWithSize:(CGSize) size
+                        locations:(const CGFloat []) locations
+                       components:(const CGFloat []) components
+                            count:(NSUInteger)count
+{
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGGradientRef colorGradient = CGGradientCreateWithColorComponents(colorSpace, components, locations, 2);
+    CGColorSpaceRelease(colorSpace);
+    CGContextDrawLinearGradient(context, colorGradient, (CGPoint){0, 0}, (CGPoint){size.width, 0}, 0);
+    CGGradientRelease(colorGradient);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 @end

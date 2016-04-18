@@ -8,15 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-
-typedef enum {
+typedef NS_ENUM(unsigned int, eumJZMAlignSize) {
     AlignSize_Random = 0,
     AlignSize_2byte = 1,
     AlignSize_4byte = 2,
     AlignSize_8byte = 3,
     AlignSize_16byte = 4,
     
-}eumJZMAlignSize;
+};
 
 
 

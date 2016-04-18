@@ -1,5 +1,5 @@
 //
-//  JZUIStyleHelper.m
+//  JZColorHelper.m
 //  AirDefenderNewUI
 //
 //  Created by Liu Rui on 15/3/12.
@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JZUIStyleHelper.h"
+#import "JZColorHelper.h"
 
-@implementation JZUIStyleHelper
+@implementation JZColorHelper
 
 
 /*!

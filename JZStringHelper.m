@@ -1,14 +1,14 @@
 //
-//  JZString.m
+//  JZStringHelper.m
 //  AirDefenderNewUI
 //
 //  Created by Liu Rui on 15/4/14.
 //  Copyright (c) 2015年 Liu Rui. All rights reserved.
 //
 
-#import "JZString.h"
+#import "JZStringHelper.h"
 
-@implementation JZString
+@implementation JZStringHelper
 
 
 +(NSString*)translatHexStringFromCharArray:(char*)charArray ArrayLength: (unsigned int)len

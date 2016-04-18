@@ -1,5 +1,5 @@
 //
-//  JZRepeatTimer.h
+//  JZTimer.h
 //  JZSystemFuncDemon
 //
 //  Created by Liu Rui on 15/2/3.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JZRepeatTimer : NSObject
+@interface JZTimer : NSObject
 
-+(JZRepeatTimer*)newInstance;
++(JZTimer*)newInstance;
 
 -(void)startTimerTimingSecond: (NSTimeInterval)second
                         block: (void (^)())timerBlock

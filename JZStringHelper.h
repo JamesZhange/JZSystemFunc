@@ -1,5 +1,5 @@
 //
-//  JZString.h
+//  JZStringHelper.h
 //  AirDefenderNewUI
 //
 //  Created by Liu Rui on 15/4/14.
@@ -10,7 +10,7 @@
 
 
 
-@interface JZString : NSObject
+@interface JZStringHelper : NSObject
 
 // char[]按位转成十六进制字符
 +(NSString*)translatHexStringFromCharArray:(char*)charArray ArrayLength: (unsigned int)len;
