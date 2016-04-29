@@ -100,4 +100,20 @@
     return image;
 }
 
+
+// 纯色 image
++(UIImage*)imageWithSize: (CGSize)size
+               pureColor: (UIColor*)color
+{
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    [color set];
+    UIRectFill(CGRectMake(0,0, size.width, size.height));
+    UIImage *pressedColorImg = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return pressedColorImg;
+}
+
+
+
 @end

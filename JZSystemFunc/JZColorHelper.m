@@ -9,7 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "JZColorHelper.h"
 
+#define ColorMin    0
+#define ColorMax    255
+
+#define fColorMin    0.0
+#define fColorMax    1.0
+
+
+
+
+
 @implementation JZColorHelper
+
+
 
 
 /*!
@@ -65,7 +77,7 @@
 }
 
 
-- (NSDictionary *)getRGBDictionaryByColor:(UIColor *)originColor
++(NSDictionary *)rgbaDictionaryByColor:(UIColor *)originColor
 {
     if (nil == originColor) {
         return nil;
@@ -93,4 +105,51 @@
 }
 
 
+
++(UIColor*)colorFromColor: (UIColor*)color
+                  OffsetR: (CGFloat)offsetr
+                  OffsetG: (CGFloat)offsetg
+                  OffsetB: (CGFloat)offsetb
+                  OffsetA: (CGFloat)offseta
+{
+    if (nil != color) {
+        NSDictionary* rgbDic = [JZColorHelper rgbaDictionaryByColor: color];
+        
+        CGFloat r = ((NSNumber*)[rgbDic objectForKey:@"R"]).floatValue + offsetr;
+        CGFloat g = ((NSNumber*)[rgbDic objectForKey:@"G"]).floatValue + offsetg;
+        CGFloat b = ((NSNumber*)[rgbDic objectForKey:@"B"]).floatValue + offsetb;
+        CGFloat a = ((NSNumber*)[rgbDic objectForKey:@"A"]).floatValue + offseta;
+        
+        r = [self fColorSaturation: r];
+        g = [self fColorSaturation: g];
+        b = [self fColorSaturation: b];
+        a = [self fColorSaturation: a];
+        
+        UIColor* offsetcolor = [UIColor colorWithRed:r green:g blue:b alpha:a];
+        return offsetcolor;
+    }
+    return nil;
+}
+
+
+
+
++(CGFloat)fColorSaturation: (CGFloat)value
+{
+    CGFloat floor = (value < fColorMin) ? fColorMin : value;
+    CGFloat top = (floor > fColorMax) ? fColorMax : floor;
+    
+    return top;
+}
+
++(int)ColorSaturation: (int)value
+{
+    int floor = (value < ColorMin) ? ColorMin : value;
+    int top = (floor > ColorMax) ? ColorMax : floor;
+    
+    return top;
+}
+
 @end
+
+

@@ -23,9 +23,12 @@
 
 +(UIImage*) imageWithUIView: (UIView*)view
                      atRect: (CGRect)rect;
-// 梯度颜色变化图像
+
 +(UIImage *)gradientImageWithSize:(CGSize) size
                         locations:(const CGFloat []) locations
                        components:(const CGFloat []) components
                             count:(NSUInteger)count;
+
++(UIImage*)imageWithSize: (CGSize)size
+               pureColor: (UIColor*)color;
 @end

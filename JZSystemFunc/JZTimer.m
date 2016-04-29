@@ -38,7 +38,7 @@
 }
 
 
-+(JZTimer*)newInstance
++(JZTimer*)newTimer
 {
     return [[JZTimer alloc] init];
 }

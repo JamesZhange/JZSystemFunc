@@ -10,7 +10,7 @@
 
 @interface JZTimer : NSObject
 
-+(JZTimer*)newInstance;
++(JZTimer*)newTimer;
 
 -(void)startTimerTimingSecond: (NSTimeInterval)second
                         block: (void (^)())timerBlock

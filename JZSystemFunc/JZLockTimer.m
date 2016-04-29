@@ -35,6 +35,11 @@
     return self;
 }
 
++(JZLockTimer*)newTimer
+{
+    return [[JZLockTimer alloc] init];
+}
+
 -(void)dealloc
 {
     [self stopTimer];

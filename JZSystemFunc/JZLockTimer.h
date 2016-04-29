@@ -15,6 +15,8 @@
 
 @property (atomic) BOOL isLock;
 
++(JZLockTimer*)newTimer;
+
 -(void)startTimerTimingSecond: (unsigned int)second completion: (void (^)())completion;
 -(void)stopTimer;
 

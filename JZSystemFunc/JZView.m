@@ -98,7 +98,7 @@
     
     [self.layer insertSublayer:gradientLayer atIndex:0];
     
-    NSLog(@"gradlayer frame: x: %d, y: %d, w: %d, h: %d", (int)gradientLayer.frame.origin.x, (int)gradientLayer.frame.origin.y, (int)gradientLayer.frame.size.width, (int)gradientLayer.frame.size.height);
+    // NSLog(@"gradlayer frame: x: %d, y: %d, w: %d, h: %d", (int)gradientLayer.frame.origin.x, (int)gradientLayer.frame.origin.y, (int)gradientLayer.frame.size.width, (int)gradientLayer.frame.size.height);
 }
 
 
