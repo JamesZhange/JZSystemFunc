@@ -29,6 +29,8 @@
 -(void) JZLocaGeoLocationPlacemarkArray: (NSArray*)placemarks
                                geoError: (NSError*) error;
 
+-(void) JZLocaGetError;
+
 @end
 
 
@@ -47,7 +49,7 @@
 SYNTHESIZE_SINGLETON_FOR_HEADER(JZLocation);
 
 //
--(void)StartLocation;
+-(int)StartLocation;
 -(void)StopLocation;
 
 

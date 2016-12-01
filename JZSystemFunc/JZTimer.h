@@ -20,4 +20,6 @@
 -(void)resumeTimer;
 -(void)stopTimer;
 
+-(void)fire;
+
 @end

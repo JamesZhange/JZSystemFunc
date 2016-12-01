@@ -45,7 +45,7 @@
     [self stopTimer];
 }
 
--(void)startTimerTimingSecond: (unsigned int)second completion: (void (^)())completion
+-(void)startTimerTimingSecond: (NSTimeInterval)second completion: (void (^)())completion
 {
     if (timer) {
         [timer invalidate];

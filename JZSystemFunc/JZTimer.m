@@ -70,6 +70,12 @@
     }
 }
 
+-(void)fire
+{
+    if (timer) {
+        [timer fire];
+    }
+}
 
 -(void)pauseTimer
 {

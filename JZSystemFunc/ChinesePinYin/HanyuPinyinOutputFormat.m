@@ -4,7 +4,7 @@
 //  Created by kimziv on 13-9-14.
 //
 
-#include "HanyuPinyinOutputFormat.h"
+#import "HanyuPinyinOutputFormat.h"
 
 @implementation HanyuPinyinOutputFormat
 @synthesize vCharType=_vCharType;

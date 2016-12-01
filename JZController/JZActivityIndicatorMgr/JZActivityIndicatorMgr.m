@@ -73,6 +73,11 @@
     return self;
 }
 
+-(void)dealloc
+{
+    [self hideIndicator];
+    self.spinner = nil;
+}
 
 
 
@@ -84,7 +89,9 @@
 -(void)setBarColor:(UIColor *)barColor {
     if (nil != barColor) {
         mBarColor = barColor;
-        [self.spinner setBarColor: barColor];
+        if (nil != self.spinner) {
+            [self.spinner setBarColor: barColor];
+        }
     }
 }
 
@@ -94,7 +101,9 @@
 -(void)setBarWidth:(CGFloat)barWidth {
     if (barWidth > 0) {
         mBarWidth = barWidth;
-        [self.spinner setBarWidth: barWidth];
+        if (nil != self.spinner) {
+            [self.spinner setBarWidth: barWidth];
+        }
     }
 }
 
@@ -104,7 +113,9 @@
 -(void)setBarHeight:(CGFloat)barHeight {
     if (barHeight > 0) {
         mBarHeight = barHeight;
-        [self.spinner setBarHeight: barHeight];
+        if (nil != self.spinner) {
+            [self.spinner setBarHeight: barHeight];
+        }
     }
 }
 
@@ -114,7 +125,9 @@
 -(void)setAperture:(CGFloat)aperture {
     if (aperture > 0) {
         mAperture = aperture;
-        [self.spinner setAperture: aperture];
+        if (nil != self.spinner) {
+            [self.spinner setAperture: aperture];
+        }
     }
 }
 
@@ -125,16 +138,25 @@
 
 - (void)showIndicator
 {
-    [mContentView addSubview: self.spinner];
-    self.spinner.center = CGPointMake((mContentFrame.origin.x + (mContentFrame.size.width/2)),
-                                      (mContentFrame.origin.y + (mContentFrame.size.height/2))) ;
-    [self.spinner startAnimating];
+    if (nil != self.spinner) {
+        dispatch_async(dispatch_get_main_queue(), ^(){
+            
+            [mContentView addSubview: self.spinner];
+            self.spinner.center = CGPointMake((mContentFrame.origin.x + (mContentFrame.size.width/2)),
+                                              (mContentFrame.origin.y + (mContentFrame.size.height/2))) ;
+            [self.spinner startAnimating];
+        });
+    }
 }
 
 - (void)hideIndicator
 {
-    [self.spinner stopAnimating];
-    [self.spinner removeFromSuperview];
+   //  dispatch_async(dispatch_get_main_queue(), ^(){
+        if (nil != self.spinner) {
+            [self.spinner stopAnimating];
+            [self.spinner removeFromSuperview];
+        }
+    // });
 }
 
 

@@ -4,7 +4,7 @@
 //  Created by kimziv on 13-9-14.
 //
 
-#include "ChineseToPinyinResource.h"
+#import "ChineseToPinyinResource.h"
 #define LEFT_BRACKET @"("
 #define RIGHT_BRACKET @")"
 #define COMMA @","

@@ -7,7 +7,7 @@
 //
 
 #import "JZLocation.h"
-
+#import "FADGlobal.h"
 
 #define GeoLocationRetryNum 5
 
@@ -66,7 +66,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JZLocation);
 
 
 //
--(void)StartLocation
+-(int)StartLocation
 {
     if ([CLLocationManager locationServicesEnabled]) {
         // 启动位置更新
@@ -74,18 +74,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JZLocation);
         [locationManager startUpdatingLocation];
         
         GeoLocationRetryCount = 0;
+        
+        return 0;
     }
     else {
         
-        // NSLog(@"请开启定位功能！");
-        NSString *alertstring = @"定位功能未开启，无法定位当前城市，请到设置中开启定位服务。";
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"无法定位"
-                              message: alertstring
-                              delegate: self
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil, nil];
-        [alert show];
+        return 1;
     }
     
 }
@@ -156,6 +150,7 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status {
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"location error:%@",error);
+    [multiDelegate JZLocaGetError];
 }
 
 
