@@ -12,9 +12,9 @@
 // #import "vector_inline_implementation.h"
 
 
-static const double kMinCutoffFrequency = 1;
+// static const double kMinCutoffFrequency = 1;
 
-static const double kUserAccelerationHpfCutoffFrequency = 1000.0;
+// static const double kUserAccelerationHpfCutoffFrequency = 1000.0;
 static const double kUserAccelerationLpfCutoffFrequency = 10.0;
 
 

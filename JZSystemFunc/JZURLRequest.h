@@ -18,7 +18,7 @@
 
 @property(nonatomic, readonly) NSURLRequest *request;
 
-+(JZURLRequest*)requestWithURL: (NSURL*)url
++(JZURLRequest*)requestWithURL: (NSString*)urlstr
                     httpMethod: (NSString*)method;
 
 -(void)addValue:(NSString*)value
@@ -26,5 +26,6 @@ forBodyParameter:(NSString*)key;
 
 -(void)removeBodyParameter:(NSString*)key;
 
+-(NSURLRequest*)requestWithTimeout:(NSTimeInterval)time;
 
 @end

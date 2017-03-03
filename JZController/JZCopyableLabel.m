@@ -10,6 +10,33 @@
 
 @implementation JZCopyableLabel
 
+//绑定事件
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.PasteboardString = nil;
+        [self attachTapHandler];
+    }
+    return self;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder: aDecoder];
+    if (self) {
+        self.PasteboardString = nil;
+        [self attachTapHandler];
+    }
+    return self;
+}
+
+-(void)awakeFromNib {
+    
+    [super awakeFromNib];
+    [self attachTapHandler];
+}
+
+
 
 -(BOOL)canBecomeFirstResponder {
     
@@ -26,7 +53,11 @@
 -(void)copy:(id)sender {
     
     UIPasteboard *pboard = [UIPasteboard generalPasteboard];
-    pboard.string = self.text;
+    if (nil != self.PasteboardString) {
+        pboard.string = self.PasteboardString;
+    } else {
+        pboard.string = self.text;
+    }
 }
 
 //UILabel默认是不接收事件的，我们需要自己添加touch事件
@@ -37,31 +68,6 @@
     [self addGestureRecognizer:touch];
 }
 
-//绑定事件
-- (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        
-        [self attachTapHandler];
-    }
-    return self;
-}
-
--(id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder: aDecoder];
-    if (self) {
-        
-        [self attachTapHandler];
-    }
-    return self;
-}
-
--(void)awakeFromNib {
-    
-    [super awakeFromNib];
-    [self attachTapHandler];
-}
 
 -(void)handleTap:(UIGestureRecognizer*) recognizer {
     

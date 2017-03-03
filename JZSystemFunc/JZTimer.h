@@ -10,6 +10,8 @@
 
 @interface JZTimer : NSObject
 
+@property (nonatomic, readonly) BOOL isRunning;
+
 +(JZTimer*)newTimer;
 
 -(void)startTimerTimingSecond: (NSTimeInterval)second

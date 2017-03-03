@@ -66,12 +66,13 @@
         [timer invalidate];
         timer = nil;
     }
+    _isLock = NO;
     
     if (nil != mCompletion) {
         mCompletion();
     }
     
-    _isLock = NO;
+    
 }
 
 // 提前终止，此时不运行 completion block

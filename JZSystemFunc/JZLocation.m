@@ -147,9 +147,10 @@ didChangeAuthorizationStatus: (CLAuthorizationStatus)status {
 }
 
 // 定位失误时触发
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error
 {
-    NSLog(@"location error:%@",error);
+    NSLog(@"location error:%@", [error localizedDescription]);
     [multiDelegate JZLocaGetError];
 }
 

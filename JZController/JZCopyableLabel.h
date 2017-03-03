@@ -10,4 +10,6 @@
 
 @interface JZCopyableLabel : UILabel
 
+@property(nonatomic, strong) NSString* PasteboardString;
+
 @end

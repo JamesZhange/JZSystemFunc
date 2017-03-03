@@ -28,6 +28,7 @@
     if (self) {
         timer = nil;
         mCompletion = nil;
+        _isRunning = NO;
     }
     return self;
 }
@@ -51,6 +52,7 @@
     if (timer) {
         [timer invalidate];
         timer = nil;
+        _isRunning = NO;
     }
     mCompletion = timerBlock;
     mSecond = second;
@@ -59,7 +61,8 @@
     timer = [NSTimer scheduledTimerWithTimeInterval: second
                                              target: self
                                            selector: @selector(onTheTime)
-                                           userInfo: nil repeats:yesOrNo];  
+                                           userInfo: nil repeats:yesOrNo];
+    _isRunning = YES;
 }
 
 
@@ -96,6 +99,7 @@
                                              target: self
                                            selector: @selector(onTheTime)
                                            userInfo: nil repeats:mRepeat];
+    _isRunning = YES;
 }
 
 
@@ -106,6 +110,7 @@
         [timer invalidate];
         timer = nil;
     }
+    _isRunning = NO;
 }
 
 @end

@@ -16,12 +16,12 @@
 
 @interface JZURLRequest()
 {
-    NSURL* mUrl;
+    NSString* mUrl;
     NSString* mMethod;
     NSMutableDictionary* mBodyDic;
 }
 
-@property (nonatomic, strong) NSURL* URL;
+@property (nonatomic, strong) NSString* URL;
 @property (nonatomic, strong) NSString* Method;
 
 @end
@@ -43,15 +43,15 @@
     return self;
 }
 
-+(JZURLRequest*)requestWithURL: (NSURL*)url
-                   httpMethod: (NSString*)method
++(JZURLRequest*)requestWithURL: (NSString*)urlstr
+                    httpMethod: (NSString*)method
 {
-    if ((nil != url)
+    if ((nil != urlstr)
         && (nil != method))
     {
         JZURLRequest* request = [[JZURLRequest alloc] init];
         
-        request.URL = url;
+        request.URL = urlstr;
         request.Method = method;
         
         return request;
@@ -82,10 +82,10 @@
 
 #pragma mark - property
 
--(NSURL*) URL {
+-(NSString*) URL {
     return mUrl;
 }
--(void)setURL:(NSURL *)URL {
+-(void)setURL:(NSString *)URL {
     mUrl = URL;
 }
 
@@ -98,23 +98,23 @@
 
 
 -(NSURLRequest*)request {
-    return [self packagingRequest];
+    return [self requestWithTimeout: 15];
 }
 
--(NSURLRequest*)packagingRequest
+-(NSURLRequest*)requestWithTimeout:(NSTimeInterval)time {
+    return [self packagingRequestWithTimeout: time];
+}
+
+-(NSURLRequest*)packagingRequestWithTimeout: (NSTimeInterval)time
 {
     if (nil == mUrl) {
         return nil;
     }
     
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
-    [request setURL: mUrl];
-    [request setHTTPMethod: mMethod];
-    [request setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
-    [request setTimeoutInterval: 15];
+    NSString* urlall = mUrl;
     
     if ((nil != mBodyDic) && (0 != [mBodyDic allKeys].count)) {
-        NSString* bodystr = @"";
+        NSString* bodystr = @"?";
         for (NSString* key in [mBodyDic allKeys]) {
             NSString* value = [mBodyDic objectForKey: key];
             bodystr = [bodystr stringByAppendingString: [NSString stringWithFormat: @"%@=%@&", key, value]];
@@ -122,11 +122,18 @@
         
         bodystr = [bodystr substringToIndex: (bodystr.length-1)];
         
-        [request setHTTPBody:[bodystr dataUsingEncoding:NSUTF8StringEncoding]];
+        urlall = [urlall stringByAppendingString: bodystr];
     }
+    
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
+    [request setURL: [NSURL URLWithString: urlall]];
+    [request setHTTPMethod: mMethod];
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
+    [request setTimeoutInterval: time]; //  超时
     
     return request;
 }
+
 
 @end
 
