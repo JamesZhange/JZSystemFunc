@@ -46,4 +46,7 @@ typedef void (^AlertCompletion)(void);
                    animated: (BOOL)animated
                  completion: (AlertCompletion)completion;
 
+-(void)closeAlertViewAnimated: (BOOL)animated
+                   completion: (AlertCompletion)completion;
+
 @end

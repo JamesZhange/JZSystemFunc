@@ -29,6 +29,8 @@
     
     NSMutableArray* mDefaultButtonArray;       // JZCompatibleAlertButton
     
+    BOOL isAlertViewShowing;
+    
 }
 
 @property (strong, nonatomic) UIAlertView* alertview;
@@ -75,6 +77,7 @@
         else {
         }
         
+        isAlertViewShowing = NO;
     }
     return self;
 }
@@ -218,14 +221,30 @@
         [viewcontroller presentViewController: self.alertcontroller
                                      animated: animated
                                    completion: completion];
+        isAlertViewShowing = YES;
         
     } else {
-    
     
     
     }
     
 }
+
+-(void)closeAlertViewAnimated: (BOOL)animated
+                   completion: (AlertCompletion)completion
+{
+    if (IOS_8_OR_LATER) {
+        if (YES == isAlertViewShowing) {
+            isAlertViewShowing = NO;
+            if (nil != mAlertcontroller) {
+                [mAlertcontroller dismissViewControllerAnimated:animated completion:completion];
+            }
+        }
+    } else {
+    
+    }
+}
+
 
 
 #pragma mark - property
