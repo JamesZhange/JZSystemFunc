@@ -125,6 +125,8 @@
         urlall = [urlall stringByAppendingString: bodystr];
     }
     
+    urlall = [urlall stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] init];
     [request setURL: [NSURL URLWithString: urlall]];
     [request setHTTPMethod: mMethod];

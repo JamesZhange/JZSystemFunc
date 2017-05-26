@@ -44,6 +44,12 @@
     return [[JZTimer alloc] init];
 }
 
++(void)deleyTimingSecond: (NSTimeInterval)second
+                RunBlock: (void (^)())timerBlock
+{
+    [[JZTimer newTimer] startTimerTimingSecond:second block:timerBlock repeat:NO];
+}
+
 
 -(void)startTimerTimingSecond: (NSTimeInterval)second
                         block: (void (^)())timerBlock
