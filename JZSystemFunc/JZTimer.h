@@ -25,7 +25,7 @@
 -(void)fire;
 
 // 封装一些常用操作
-+(void)deleyTimingSecond: (NSTimeInterval)second
++(void)delayTimingSecond: (NSTimeInterval)second
                 RunBlock: (void (^)())timerBlock;
 
 @end

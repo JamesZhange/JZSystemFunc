@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FADBaseNavigationController : UINavigationController <UIGestureRecognizerDelegate, UINavigationControllerDelegate>
+@interface JZBaseNavigationController : UINavigationController <UIGestureRecognizerDelegate, UINavigationControllerDelegate>
 
 @end

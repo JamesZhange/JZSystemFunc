@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
-#import "FADGlobal.h"
+#import "AppGlobal.h"
 
 
 #define PI              (3.1415926535898)

@@ -7,10 +7,9 @@
 //
 
 #import "NetworkReachability.h"
+#import "AppGlobal.h"
 #import "TonyReachability.h"
 #import "NSURLConnection+tag.h"
-#import "JZTimer.h"
-#import "JZURLRequest.h"
 
 typedef enum {
     CONNECTTAG_TESTFASERVER = 1,
@@ -63,7 +62,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(NetworkReachability);
                 // "网络可用";
                 // DLOG(@"网络可用");
                 if (reachability.isReachableViaWiFi) {
-                    NSLog(@"当前通过wifi连接");
+                    DLOG(@"当前通过wifi连接");
                     _NetworkReachable = eumNetReach_ReachableWiFi;
                     [strongSelf startMonitorFAServer];
                     [strongSelf sendStateToDelegate];
@@ -74,7 +73,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(NetworkReachability);
                 }
                 
                 if (reachability.isReachableViaWWAN) {
-                    NSLog(@"当前通过 3G or 4G 连接");
+                    DLOG(@"当前通过 3G or 4G 连接");
                     _NetworkReachable = eumNetReach_ReachableWWAN;
                     [strongSelf startMonitorFAServer];
                     [strongSelf sendStateToDelegate];
@@ -90,7 +89,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(NetworkReachability);
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 typeof(weakSelf) __strong strongSelf = weakSelf;
-                NSLog(@"网络不可用");
+                DLOG(@"网络不可用");
                 
                 _NetworkReachable = eumNetReach_NotReachable;
                 [strongSelf sendStateToDelegate];

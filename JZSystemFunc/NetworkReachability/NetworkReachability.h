@@ -7,7 +7,7 @@
 //
 
 #import "JZMultiDelegateObject.h"
-#import "FADGlobal.h"
+#import "AppGlobal.h"
 
 
 typedef NS_ENUM(int, eumNetworkReachState) {

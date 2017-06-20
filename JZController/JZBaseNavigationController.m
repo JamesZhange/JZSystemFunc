@@ -6,13 +6,13 @@
 //  Copyright © 2016年 Liu Rui. All rights reserved.
 //
 
-#import "FADBaseNavigationController.h"
+#import "JZBaseNavigationController.h"
 
-@interface FADBaseNavigationController ()
+@interface JZBaseNavigationController ()
 
 @end
 
-@implementation FADBaseNavigationController
+@implementation JZBaseNavigationController
 
 - (id)initWithRootViewController:(UIViewController *)rootViewController
 {
@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad
 {
-    __weak FADBaseNavigationController *weakSelf = self;
+    __weak JZBaseNavigationController *weakSelf = self;
     
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
     {

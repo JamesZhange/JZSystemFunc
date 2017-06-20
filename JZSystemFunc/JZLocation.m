@@ -7,7 +7,7 @@
 //
 
 #import "JZLocation.h"
-#import "FADGlobal.h"
+#import "AppGlobal.h"
 
 #define GeoLocationRetryNum 5
 
