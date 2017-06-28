@@ -16,6 +16,7 @@
 #import "JZLockTimer.h"
 #import "JZTimer.h"
 #import "JZColorHelper.h"
+#import "JZDateHelper.h"
 #import "JZLocation.h"
 #import "JZMemory.h"
 #import "JZStringHelper.h"
