@@ -11,10 +11,6 @@
 #import "AppGlobal.h"
 
 
-#define PI              (3.1415926535898)
-#define ANGLEforPI      (180)
-
-
 @interface JZMotionManager : NSObject
 SYNTHESIZE_SINGLETON_FOR_HEADER(JZMotionManager)
 

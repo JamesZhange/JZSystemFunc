@@ -15,6 +15,7 @@
 #import "JZMultiDelegateUIView.h"
 #import "JZLockTimer.h"
 #import "JZTimer.h"
+#import "JZMath.h"
 #import "JZColorHelper.h"
 #import "JZDateHelper.h"
 #import "JZLocation.h"
