@@ -26,6 +26,12 @@ typedef void (^AlertCompletion)(void);
 
 @interface JZCompatibleAlert : NSObject
 
+// alertController title
+@property (nonatomic, strong) UILabel *titleLabel;
+// alertController message
+@property (nonatomic, strong) UILabel *messageLabel;
+
+
 
 -(instancetype)initWithWithTitle: (NSString*)title
                          message: (NSString*)message
@@ -48,5 +54,20 @@ typedef void (^AlertCompletion)(void);
 
 -(void)closeAlertViewAnimated: (BOOL)animated
                    completion: (AlertCompletion)completion;
+
+// 定制
+/*
+   NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"提示内容"];
+ 
+ * [attrStr addAttribute: NSFontAttributeName
+                   value:[UIFont fontWithName:@"NotoSansCJKsc-Bold" size:14]
+                   range: NSMakeRange(0, message.length)];
+ 
+   [attrStr addAttribute: NSForegroundColorAttributeName 
+                   value: [Tools colorWithHexString:@"#0b0b0b"] 
+                   range: NSMakeRange(0, message.length)];
+ */
+-(void)setAttributedStringForAlertTitle:(id)attrStr;
+-(void)setAttributedStringForAlertMessage:(id)attrStr;
 
 @end

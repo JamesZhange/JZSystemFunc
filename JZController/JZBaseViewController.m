@@ -223,4 +223,24 @@
 
 
 
+
+
+#pragma mark - 页面旋转相关
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
+//当前viewcontroller支持那些转屏方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+//当前viewcontroller默认的屏幕方向
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
+}
+
+
+
+
 @end

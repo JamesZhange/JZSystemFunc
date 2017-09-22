@@ -279,6 +279,43 @@
 
 
 
+#pragma mark - 定制
+-(void)setAttributedStringForAlertTitle:(id)attrStr
+{
+    [self.alertcontroller setValue:attrStr forKey:@"attributedTitle"];
+}
+
+-(void)setAttributedStringForAlertMessage:(id)attrStr
+{
+    [self.alertcontroller setValue:attrStr forKey:@"attributedMessage"];
+}
+
+
+// 递归查找
+- (NSArray *)yf_viewArray:(UIView *)root {
+    static NSArray *_subviews = nil;
+    _subviews = nil;
+    for (UIView *v in root.subviews) {
+        if (_subviews) {
+            break;
+        }
+        if ([v isKindOfClass:[UILabel class]]) {
+            _subviews = root.subviews;
+            return _subviews;
+        }
+        [self yf_viewArray:v];
+    }
+    return _subviews;
+}
+
+- (UILabel *)titleLabel {
+    return [self yf_viewArray: self.alertcontroller.view][0];
+}
+
+- (UILabel *)messageLabel {
+    return [self yf_viewArray: self.alertcontroller.view][1];
+}
+
 @end
 
 

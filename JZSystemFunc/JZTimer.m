@@ -11,6 +11,7 @@
 @interface JZTimer()
 {
     BOOL mRepeat;
+    unsigned int nRepeatTimes;
     NSTimeInterval mSecond;
     NSTimer* timer;
     void (^mCompletion)(void);
@@ -29,6 +30,7 @@
         timer = nil;
         mCompletion = nil;
         _isRunning = NO;
+        nRepeatTimes = 0;
     }
     return self;
 }
@@ -71,11 +73,32 @@
     _isRunning = YES;
 }
 
+-(void)startTimerTimingSecond: (NSTimeInterval)second
+                        block: (void (^)())timerBlock
+                  repeatTimes: (unsigned int)repeattimes
+{
+    if (0 != repeattimes) {
+        nRepeatTimes = repeattimes + 1; // nRepeatTimes 定义为无符号值，“+1“操作为判断停止提供条件
+        [self startTimerTimingSecond: second
+                               block: timerBlock
+                              repeat: YES];
+        
+    } else {
+        [self startTimerTimingSecond: second
+                               block: timerBlock
+                              repeat: NO];
+    }
+}
+
 
 -(void)onTheTime
 {
     if (nil != mCompletion) {
         mCompletion();
+    }
+    nRepeatTimes--;
+    if (0 == nRepeatTimes) {
+        [self stopTimer];
     }
 }
 

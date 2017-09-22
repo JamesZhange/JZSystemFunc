@@ -17,6 +17,10 @@
 -(void)startTimerTimingSecond: (NSTimeInterval)second
                         block: (void (^)())timerBlock
                        repeat: (BOOL)yesOrNo;
+// 重复指定次数。0：不重复
+-(void)startTimerTimingSecond: (NSTimeInterval)second
+                        block: (void (^)())timerBlock
+                  repeatTimes: (unsigned int)repeattimes;
 
 -(void)pauseTimer;
 -(void)resumeTimer;
