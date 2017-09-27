@@ -249,5 +249,47 @@
     }
     return self;
 }
+
+
+
++(NSString*)getWeekStrWithDate: (NSDate*)date
+{
+    // 用 NSDateFormatter 的 EEE 可以格式化出 week
+    
+    NSString *retString = nil;
+    
+    NSDateComponents *componets = [[NSCalendar autoupdatingCurrentCalendar] components:NSCalendarUnitWeekday fromDate:date];
+    NSInteger weekday = [componets weekday];
+    
+    switch (weekday) {
+        case 1:
+            retString = JZLocalStr(@"周日", nil);
+            break;
+        case 2:
+            retString = JZLocalStr(@"周一", nil);
+            break;
+        case 3:
+            retString = JZLocalStr(@"周二", nil);
+            break;
+        case 4:
+            retString = JZLocalStr(@"周三", nil);
+            break;
+        case 5:
+            retString = JZLocalStr(@"周四", nil);
+            break;
+        case 6:
+            retString = JZLocalStr(@"周五", nil);
+            break;
+        case 7:
+            retString = JZLocalStr(@"周六", nil);
+            break;
+        default:
+            break;
+    }
+    
+    return retString;
+}
+
+
 @end
 

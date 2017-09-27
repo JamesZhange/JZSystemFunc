@@ -36,7 +36,8 @@
 // 时间间隔
 +(JZIntervalDateComponents*)IntervalHumanTimeSinceDate:(NSDate*)date1 ToDate:(NSDate*)date2;
 
-
+// 字符化星期期日
++(NSString*)getWeekStrWithDate: (NSDate*)date;
 
 @end
 

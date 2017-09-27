@@ -21,7 +21,8 @@
 #import "JZLocation.h"
 #import "JZMemory.h"
 #import "JZStringHelper.h"
-//#import "ALSystem.h"
+#import "JZDevicePlatform.h"
+#import "JZFileSystem.h"
 #import "JZView.h"
 #import "JZCompatibleAlert.h"
 #import "JZImageHelper.h"
@@ -57,13 +58,15 @@
 
 // 多语言替换宏
 // #define FALocalizedString(key, comment) NSLocalizedString(key, comment)
-#define JZLocalStr(key, comment) [AppGlobal DPLocalizedString:key]
+#define JZLocalStr(key, comment) [JZGlobal DPLocalizedString:key]
 
 
 // #define DLOG  NSLog
-#define DLOG(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 // #define DLOG
+#define DLOG(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 
+// #define DPrintf
+#define DPrintf	printf
 
 
 // G－C－D
@@ -75,48 +78,19 @@
 #define USER_DEFAULT [NSUserDefaults standardUserDefaults]
 
 
-// #define FACPrintf
-#define FACPrintf	printf
-
-
-// release 版宏
-// #define CODE_FOR_RELEASE  1
-
-
-// OpenEars 库 宏
-// #define USE_OPENEARS_LIB    1  // 因为和讯飞的库冲突，无法一起编译
-
 
 /*********************************************************/
 /***************     interface FADGlobal   ***************/
 /*********************************************************/
 
-#pragma mark - FADGlobal class
-
-#define FAIRAIRBLEPASSWORDLENGTH        6
-#define FAIRAIRWiFiPASSWORDLENGTH       64
-#define FAIRAIRDEVICENAMELENGTH         20
+#pragma mark - JZGlobal class
 
 @interface JZGlobal : NSObject
 
 
-// 多语言默认语言选择
-+ (NSString *)DPLocalizedString:(NSString *)translation_key;
-
-
-+(NSString*)getWeekStrWithDate: (NSDate*)date;
-
-
-// 当前 UIViewController
-+(UIViewController *)currentViewController;
 
 
 
-+(NSString*)AppDocumentsPatch;
-+(NSString*)AppDocumentsFilePatch: (NSString*)filename;
-
-+(NSString*)AppCacheDirectoryPatch;
-+(NSString*)AppCacheDirectoryFilePatch: (NSString*)filename;
 
 
 
