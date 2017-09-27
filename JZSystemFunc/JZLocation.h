@@ -13,7 +13,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "AppGlobal.h"
+#import "JZGlobal.h"
 
 
 

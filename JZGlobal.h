@@ -97,7 +97,7 @@
 #define FAIRAIRWiFiPASSWORDLENGTH       64
 #define FAIRAIRDEVICENAMELENGTH         20
 
-@interface AppGlobal : NSObject
+@interface JZGlobal : NSObject
 
 
 // 多语言默认语言选择

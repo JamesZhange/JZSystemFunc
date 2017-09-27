@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
-#import "AppGlobal.h"
+#import "JZGlobal.h"
 
 
 @interface JZMotionManager : NSObject

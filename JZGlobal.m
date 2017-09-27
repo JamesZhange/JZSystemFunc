@@ -8,7 +8,7 @@
 
 #import "AppGlobal.h"
 
-@implementation AppGlobal
+@implementation JZGlobal
 
 
 #pragma mark - 默认语言选择

@@ -8,6 +8,6 @@
 
 #import "AppModule.h"
 
-@implementation AppModule
+@implementation JZModule
 
 @end

@@ -14,6 +14,6 @@
 
 
 
-@interface AppModule : NSObject
+@interface JZModule : NSObject
 
 @end

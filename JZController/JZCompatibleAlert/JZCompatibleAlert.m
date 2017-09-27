@@ -8,7 +8,7 @@
 
 #import "JZCompatibleAlert.h"
 #import <UIKit/UIKit.h>
-#import "AppGlobal.h"
+#import "JZGlobal.h"
 #import "JZCompatibleAlertButton.h"
 
 

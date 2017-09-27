@@ -7,7 +7,7 @@
 //
 
 #import "NetworkReachability.h"
-#import "AppGlobal.h"
+#import "JZGlobal.h"
 #import "TonyReachability.h"
 #import "NSURLConnection+tag.h"
 

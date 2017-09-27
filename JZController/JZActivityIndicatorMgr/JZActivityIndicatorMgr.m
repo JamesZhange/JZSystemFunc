@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppGlobal.h"
+#import "JZGlobal.h"
 #import "JZActivityIndicatorMgr.h"
 #import "AMPActivityIndicator.h"
 
