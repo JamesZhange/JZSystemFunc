@@ -9,7 +9,6 @@
 #import "JZDateHelper.h"
 
 
-
 @implementation JZDateHelper
 
 
@@ -225,6 +224,47 @@
     return intervalDay;
 }
 
+
++(NSString*)getWeekStrWithDate: (NSDate*)date
+{
+    // 用 NSDateFormatter 的 EEE 可以格式化出 week
+    
+    NSString *retString = nil;
+    
+    NSDateComponents *componets = [[NSCalendar autoupdatingCurrentCalendar] components:NSCalendarUnitWeekday fromDate:date];
+    NSInteger weekday = [componets weekday];
+    
+    switch (weekday) {
+        case 1:
+            retString = @"周日";
+            break;
+        case 2:
+            retString = @"周一";
+            break;
+        case 3:
+            retString = @"周二";
+            break;
+        case 4:
+            retString = @"周三";
+            break;
+        case 5:
+            retString = @"周四";
+            break;
+        case 6:
+            retString = @"周五";
+            break;
+        case 7:
+            retString = @"周六";
+            break;
+        default:
+            break;
+    }
+    
+    return retString;
+}
+
+
+
 @end
 
 
@@ -248,46 +288,6 @@
         _second = 0;
     }
     return self;
-}
-
-
-
-+(NSString*)getWeekStrWithDate: (NSDate*)date
-{
-    // 用 NSDateFormatter 的 EEE 可以格式化出 week
-    
-    NSString *retString = nil;
-    
-    NSDateComponents *componets = [[NSCalendar autoupdatingCurrentCalendar] components:NSCalendarUnitWeekday fromDate:date];
-    NSInteger weekday = [componets weekday];
-    
-    switch (weekday) {
-        case 1:
-            retString = JZLocalStr(@"周日", nil);
-            break;
-        case 2:
-            retString = JZLocalStr(@"周一", nil);
-            break;
-        case 3:
-            retString = JZLocalStr(@"周二", nil);
-            break;
-        case 4:
-            retString = JZLocalStr(@"周三", nil);
-            break;
-        case 5:
-            retString = JZLocalStr(@"周四", nil);
-            break;
-        case 6:
-            retString = JZLocalStr(@"周五", nil);
-            break;
-        case 7:
-            retString = JZLocalStr(@"周六", nil);
-            break;
-        default:
-            break;
-    }
-    
-    return retString;
 }
 
 

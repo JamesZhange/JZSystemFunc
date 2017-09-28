@@ -56,11 +56,6 @@
 
 
 
-// 多语言替换宏
-// #define FALocalizedString(key, comment) NSLocalizedString(key, comment)
-#define JZLocalStr(key, comment) [JZGlobal DPLocalizedString:key]
-
-
 // #define DLOG  NSLog
 // #define DLOG
 #define DLOG(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
