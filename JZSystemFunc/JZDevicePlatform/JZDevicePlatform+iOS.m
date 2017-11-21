@@ -8,7 +8,7 @@
 
 #import "JZDevicePlatform.h"
 #import "UIDeviceHardware.h"
-
+#import "JZGlobal.h"
 
 
 @implementation JZDevicePlatform (iOS)
@@ -21,15 +21,15 @@
     NSString* platform = [UIDeviceHardware platformStringSimple];
     
 #if 1
-    if ([platform isEqualToString: @"iPhone X"])
+    if ([platform isEqualIgnoreCaseToString: @"iPhone X"])
     {
         return YES;
     } else {
         return NO;
     }
 #else // simulator debug // 模拟器调试
-    if (([platform isEqualToString: @"iPhone X"])
-        || ([platform isEqualToString: @"Simulator"]))
+    if (([platform isEqualIgnoreCaseToString: @"iPhone X"])
+        || ([platform isEqualIgnoreCaseToString: @"Simulator"]))
     {
         return YES;
     } else {
