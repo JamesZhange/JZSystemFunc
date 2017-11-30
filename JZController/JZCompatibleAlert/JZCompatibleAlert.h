@@ -42,9 +42,13 @@ typedef void (^AlertCompletion)(void);
 -(int)addCancelButtonTitle: (NSString*)title
                      action: (ButtonAction)action;
 
+-(int)addDestructiveButtonTitle: (NSString*)title
+                         action: (ButtonAction)action;
+
 -(int)addDefaultButtonTitle: (NSString*)title
                      withTag: (NSInteger)tag
                       action: (ButtonAction)action;
+
 -(void)defaultButtonTag: (NSInteger)tag
                  enable: (BOOL)enable;
 

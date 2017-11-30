@@ -27,6 +27,9 @@
     UIAlertAction *cancelAction;
     ButtonAction mCancelButtonAct;
     
+    UIAlertAction *destructiveAction;
+    ButtonAction mDestructiveButtonAct;
+    
     NSMutableArray* mDefaultButtonArray;       // JZCompatibleAlertButton
     
     BOOL isAlertViewShowing;
@@ -68,6 +71,9 @@
         
         cancelAction = nil;
         mCancelButtonAct = nil;
+        
+        destructiveAction = nil;
+        mDestructiveButtonAct = nil;
         
         mDefaultButtonArray = [NSMutableArray array];
         
@@ -130,6 +136,33 @@
                                                   }
                                               }];
         [self.alertcontroller addAction: cancelAction];
+    }
+    else
+    {
+        
+    }
+    
+    return 0;
+}
+
+-(int)addDestructiveButtonTitle: (NSString*)title
+                         action: (ButtonAction)action
+{
+    if (nil != destructiveAction) {
+        return 1;
+    }
+    
+    mDestructiveButtonAct = action;
+    
+    if (IOS_8_OR_LATER) {
+        destructiveAction = [UIAlertAction actionWithTitle: title
+                                                style: UIAlertActionStyleDestructive
+                                              handler: ^(UIAlertAction *action) {
+                                                  if (nil != mDestructiveButtonAct) {
+                                                      mDestructiveButtonAct();
+                                                  }
+                                              }];
+        [self.alertcontroller addAction: destructiveAction];
     }
     else
     {
